@@ -1,0 +1,27 @@
+# Secrets — never commit; ship a .env.example instead
+.env
+.env.*
+!.env.example
+
+# Python virtual environments (uv creates .venv by default)
+.venv/
+
+# Python bytecode and build output
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.egg-info/
+
+# Test / lint / type-check caches
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
