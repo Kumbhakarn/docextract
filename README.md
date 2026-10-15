@@ -40,5 +40,5 @@ Setup instructions will be added once the backend is scaffolded.
 
 ## Documentation
 
-- Architecture overview: `docs/architecture.md` *(coming soon)*
-- Architecture decision records: `docs/adr/` *(coming soon)*
+- [Architecture overview](docs/architecture.md)
+- [Architecture decision records](docs/adr/)
