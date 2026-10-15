@@ -8,15 +8,16 @@ A document-agnostic, multi-tenant document extraction service.
 
 - **Document-agnostic:** extract structured data from any document type, without hard-coding a format per document.
 - **Multi-tenant:** serve multiple tenants from one deployment, with each tenant's data kept separate.
+- **Grounded results (planned):** every extracted value points back to where it came from in the source document.
 
 ## Tech stack
 
-| Area            | Choice                                  |
-| --------------- | --------------------------------------- |
-| Language        | Python 3.12                             |
-| Web framework   | [FastAPI](https://fastapi.tiangolo.com) |
-| Data validation | [Pydantic](https://docs.pydantic.dev)   |
-| Packaging       | [uv](https://docs.astral.sh/uv/)        |
+| Area            | Choice                                  | State              |
+| --------------- | --------------------------------------- | ------------------ |
+| Language        | Python 3.12                             | Planned (Step 3)   |
+| Packaging       | [uv](https://docs.astral.sh/uv/)        | Planned (Step 3)   |
+| Web framework   | [FastAPI](https://fastapi.tiangolo.com) | Planned (Step 4)   |
+| Data validation | [Pydantic](https://docs.pydantic.dev)   | Planned (Step 4)   |
 
 ## Getting started
 
@@ -32,7 +33,7 @@ Setup instructions will be added once the backend is scaffolded.
 ## Roadmap
 
 - [x] Repository hygiene (`.gitignore`, `.gitattributes`)
-- [ ] Documentation and architecture decision records
+- [x] Documentation and architecture decision records
 - [ ] Backend scaffold
 - [ ] `/health` endpoint with tests
 - [ ] Pre-commit hooks and secret scanning (gitleaks)

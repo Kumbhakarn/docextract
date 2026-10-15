@@ -1,6 +1,6 @@
 # ADR-0002: Backend stack
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-10-15
 
 ## Context
@@ -13,12 +13,15 @@ Development happens on Windows and CI runs on Linux, so tooling must behave the 
 
 | Area            | Choice      | Alternatives considered         |
 | --------------- | ----------- | ------------------------------- |
-| Language        | Python 3.12 | Python 3.11, 3.13               |
+| Language        | Python 3.12 | Python 3.11, 3.13, 3.14         |
 | Web framework   | FastAPI     | Flask, Django + DRF             |
 | Data validation | Pydantic v2 | marshmallow, dataclasses        |
 | Packaging       | uv          | pip + venv, Poetry              |
 
-- **Python 3.12:** mature and widely supported by libraries, with good typing features. 3.13 is newer but some libraries lag behind it.
+- **Python 3.12:** document processing is likely to need libraries with compiled extensions (PDF parsing, imaging, OCR bindings). On 3.12, prebuilt wheels for these are reliably published for both Windows and Linux.
+  - **3.13 and 3.14:** newer, but compiled packages often publish wheels for a new Python version late. A missing wheel means building from source, which on Windows requires a C/C++ toolchain and breaks the "same on both platforms" requirement.
+  - **3.11:** wheels are available, but it has the shortest remaining support window and lacks 3.12's typing improvements (PEP 695 generics syntax) and performance gains.
+  - Trade-off: 3.12 receives security fixes only (until October 2028). Moving to a newer version is revisited once our dependencies publish wheels for it.
 - **FastAPI:** async support, request validation and OpenAPI docs built in, and it uses Pydantic directly. Flask needs extensions for the same features. Django brings an ORM and admin we don't need yet.
 - **Pydantic v2:** one model type for validation, serialization and the OpenAPI schema. Its Rust core is fast.
 - **uv:** fast installs, a cross-platform lockfile (`uv.lock`), and it can manage the Python version itself. One tool replaces pip, venv and pip-tools.
