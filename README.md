@@ -14,8 +14,8 @@ A document-agnostic, multi-tenant document extraction service.
 
 | Area            | Choice                                  | State              |
 | --------------- | --------------------------------------- | ------------------ |
-| Language        | Python 3.12                             | Planned (Step 3)   |
-| Packaging       | [uv](https://docs.astral.sh/uv/)        | Planned (Step 3)   |
+| Language        | Python 3.12                             | In use             |
+| Packaging       | [uv](https://docs.astral.sh/uv/)        | In use             |
 | Web framework   | [FastAPI](https://fastapi.tiangolo.com) | Planned (Step 4)   |
 | Data validation | [Pydantic](https://docs.pydantic.dev)   | Planned (Step 4)   |
 
@@ -28,13 +28,31 @@ A document-agnostic, multi-tenant document extraction service.
 
 ### Setup
 
-Setup instructions will be added once the backend is scaffolded.
+The backend lives in `backend/`. From the repo root:
+
+```
+cd backend
+uv sync
+```
+
+`uv sync` creates `backend/.venv` and installs the exact versions pinned in `uv.lock`, including the dev tools.
+
+### Checks
+
+Run these from `backend/`:
+
+```
+uv run pytest
+uv run ruff check .
+uv run ruff format --check .
+uv run mypy
+```
 
 ## Roadmap
 
 - [x] Repository hygiene (`.gitignore`, `.gitattributes`)
 - [x] Documentation and architecture decision records
-- [ ] Backend scaffold
+- [x] Backend scaffold
 - [ ] `/health` endpoint with tests
 - [ ] Pre-commit hooks and secret scanning (gitleaks)
 - [ ] Continuous integration
