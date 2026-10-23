@@ -14,11 +14,18 @@ docextract extracts structured data from documents and serves it over an HTTP AP
 
 ## Current state
 
-Bootstrap. No components exist yet.
+Bootstrap. The service starts and answers a liveness check; no extraction features exist yet.
 
 ## Components
 
-*To be added when the backend is scaffolded.*
+All backend code lives in `backend/src/docextract/`.
+
+| Component     | Module            | Responsibility                                                              |
+| ------------- | ----------------- | --------------------------------------------------------------------------- |
+| App factory   | `app.py`          | `create_app()` builds the FastAPI app and registers routers; `app` is the instance uvicorn serves |
+| Health router | `api/health.py`   | `GET /health` liveness check returning `{"status": "ok"}`; touches no dependencies |
+
+New endpoint groups get their own router module under `api/` and one `include_router` line in `create_app()`.
 
 ## Open questions
 
