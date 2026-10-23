@@ -1,6 +1,6 @@
 # Architecture
 
-> This document describes docextract as it is now. It grows as decisions are made; the reasoning lives in the [ADRs](adr/).
+> This document describes docextract as it is now. It grows as decisions are made.
 
 ## Purpose
 
@@ -31,7 +31,7 @@ These are deliberately undecided until a requirement needs them:
 
 ## Decisions
 
-| ADR                                               | Title                         | Status   |
-| ------------------------------------------------- | ----------------------------- | -------- |
-| [0001](adr/0001-record-architecture-decisions.md) | Record architecture decisions | Accepted |
-| [0002](adr/0002-backend-stack.md)                 | Backend stack                 | Accepted |
+| #    | Decision                      | Status   |
+| ---- | ----------------------------- | -------- |
+| 0001 | Record architecture decisions | Accepted |
+| 0002 | Backend stack                 | Accepted |

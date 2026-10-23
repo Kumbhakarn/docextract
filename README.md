@@ -60,4 +60,3 @@ uv run mypy
 ## Documentation
 
 - [Architecture overview](docs/architecture.md)
-- [Architecture decision records](docs/adr/)
